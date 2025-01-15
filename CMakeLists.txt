@@ -1,5 +1,5 @@
 # Do not change these options in this file. Use cmake.config, cmake -DOPTION=VALUE, or ccmake to specify them.
-option(BUILD_TEST "Build tests" OFF)
+option(BUILD_TEST "Build tests" ON)
 
 cmake_minimum_required(VERSION 3.17)
 
@@ -7,7 +7,7 @@ include(CMakeDependentOption)
 project(InfiniTensor C CXX)
 
 cmake_dependent_option(BUILD_TEST_CORE "Build tests for core components" ON BUILD_TEST OFF)
-
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)  # Generate compile_commands.json for clangd
 set(DEFAULT_BUILD_TYPE "RelWithDebInfo")
 # Build Type
 if(CMAKE_BUILD_TYPE STREQUAL "Debug")
